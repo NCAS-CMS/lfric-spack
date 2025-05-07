@@ -1,0 +1,43 @@
+#!/bin/bash
+#SBATCH --job-name=spack_install
+#SBATCH --time=12:00:00
+#SBATCH --ntasks=1
+#SBATCH --account=n02-NGARCH
+#SBATCH --partition=serial
+#SBATCH --qos=serial
+#SBATCH --mem=32G
+
+export OMP_NUM_THREADS=1
+NJOBS=1
+
+# check if script is started via SLURM or bash
+if [ -n "${SLURM_JOB_ID+set}" ];  then
+    # check the original location through scontrol and $SLURM_JOB_ID
+    SCRIPT_PATH=$(scontrol show job $SLURM_JOBID | awk -F= '/Command=/{print $2}')
+else
+    # otherwise: started with bash. Get the real location.
+    SCRIPT_PATH=$(realpath $0)
+fi
+
+cd $(dirname $SCRIPT_PATH)
+
+module use ./modules
+module load lfric-spack
+module list
+
+spack -V
+env | grep SPACK_U
+spack repo list
+spack mirror list
+spack find -c
+
+spack concretize
+spack find -c
+
+module load PrgEnv-gnu
+spack install -v %gcc@11
+spack find -c
+
+#module load PrgEnv-cray
+#spack install -v %cce@15
+#spack find -c

@@ -1,0 +1,6 @@
+__pycache__
+install
+spack.lock
+.spack-env
+slurm-*.out
+envs/mirror

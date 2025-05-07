@@ -1,0 +1,31 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  definitions:
+  - lfric-defs: [lfric-apps@1.2, lfric-apps@2.0, lfric-apps@2.1]
+  - lfric-defs: [lfric-meta@1.2, lfric-meta@2.0, lfric-meta@2.1]
+  - compilers: [gcc@11]
+
+  # add package specs to the `specs` list
+  specs:
+  - matrix:
+    - [$lfric-defs]
+    - [$%compilers]
+
+  view: false
+  concretizer:
+    unify: false
+  repos:
+  - ${SPACK_LFRIC_SPACK_REPOS}/lfric
+  - ${SPACK_SIMIT_SPACK_REPOS}/metoffice
+  config:
+    install_tree:
+      root: ${SPACK_LFRIC_SPACK_INSTALL}
+      padded_length: false
+  mirrors:
+    lfric-spack-mirror:
+      url: mirror
+      autopush: true
+      signed: false
