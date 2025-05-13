@@ -29,3 +29,9 @@ spack:
       url: mirror
       autopush: true
       signed: false
+  packages:
+    perl:
+      buildable: false
+      externals:
+      - spec: perl@5.26.1
+        prefix: /usr
