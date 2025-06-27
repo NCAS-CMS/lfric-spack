@@ -38,6 +38,6 @@ module load PrgEnv-gnu
 spack install -v %gcc@11
 spack find -c
 
-#module load PrgEnv-cray
-#spack install -v %cce@15
-#spack find -c
+module load PrgEnv-cray
+spack install -v %cce@15
+spack find -c

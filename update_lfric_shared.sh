@@ -33,6 +33,6 @@ module load PrgEnv-gnu
 spack install -v --no-check-signature --cache-only %gcc@11
 spack find -c
 
-#module load PrgEnv-cray
-#spack install -v --no-check-signature --cache-only %cce@15
-#spack find -c
+module load PrgEnv-cray
+spack install -v --no-check-signature --cache-only %cce@15
+spack find -c
