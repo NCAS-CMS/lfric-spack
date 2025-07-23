@@ -42,6 +42,7 @@ class LfricApps(BundlePackage):
     version("1.2")
     version("2.0")
     version("2.1")
+    version("2.2")
 
     # Dependencies
     depends_on("mpi")

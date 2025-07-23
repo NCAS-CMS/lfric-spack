@@ -4,8 +4,8 @@
 # configuration settings.
 spack:
   definitions:
-  - lfric-defs: [lfric-apps@1.2, lfric-apps@2.0, lfric-apps@2.1]
-  - lfric-defs: [lfric-meta@1.2, lfric-meta@2.0, lfric-meta@2.1]
+  - lfric-defs: [lfric-apps@1.2, lfric-apps@2.0, lfric-apps@2.1, lfric-apps@2.2]
+  - lfric-defs: [lfric-meta@1.2, lfric-meta@2.0, lfric-meta@2.1, lfric-meta@2.2]
   - compilers: [gcc@11, cce@15]
 
   # add package specs to the `specs` list
